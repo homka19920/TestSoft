@@ -566,7 +566,7 @@ int[] results = new int[20];
             System.out.println("Индекс максимального элемента: " + (maxIndex + 1));
         }  // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
-
+ 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
          int rows = 3;
         int cols = 6;
