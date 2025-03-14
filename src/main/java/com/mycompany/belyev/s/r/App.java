@@ -147,7 +147,7 @@ public class App extends javax.swing.JFrame {
 
         jLabel7.setText("<html>В массиве записаны результаты 20 игр футбольной команды<dr> (если игра окончилась выигрышем данной команды, то записано число <br>  3, вничью— 2, если игра закончилась проигрышем — 1). <br> С помощью датчика случайных чисел заполнить массив целыми значениями, лежащими в диапазоне от 1 до 3 включительно.<br> Определить номера тех команд, которые проиграли.</html>");
 
-        jLabel8.setText("Номер команд");
+        jLabel8.setText("Номер команд которые проиграли");
 
         jButton3.setText("Выполнить");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -484,14 +484,17 @@ public class App extends javax.swing.JFrame {
     }//GEN-LAST:event_jTextField1ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        System.out.println("Сформировать массив из 15 целых чисел, выбранных случайным образом из\n" +
-"интервала [10, 90]. Поменять местами последний и максимальный элементы."); 
+
         int size = 15;
         int[] array = new int[size];
         Random random = new Random();
+        String str = "";
         for (int i = 0; i < size; i++) {
             array[i] = random.nextInt(81) + 10;
+            System.out.print(array[i] + " ");
+            str += array[i] + " ";
         }
+        jTextField1.setText(str);
         System.out.println("Исходный массив:");
         for (int num : array) {
             System.out.print(num + " ");
@@ -506,44 +509,50 @@ public class App extends javax.swing.JFrame {
         int temp = array[size - 1];
         array[size - 1] = array[maxIndex];
         array[maxIndex] = temp;
+        String strA = "";
+
         System.out.println("Массив после замены последнего и максимального элементов:");
         for (int num : array) {
             System.out.print(num + " ");
-        }// TODO add your handling code here:
+            strA += num + " ";
+            
+        }
+         jTextField2.setText(str);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-int[] results = new int[20];
-        Random random = new Random();  
+        int[] results = new int[20];
+        Random random = new Random();
         for (int i = 0; i < results.length; i++) {
-            results[i] = random.nextInt(3) + 1; 
+            results[i] = random.nextInt(3) + 1;
         }
-        System.out.println("В массиве записаны результаты 20 игр футбольной команды (если игра\n" +
-"окончилась выигрышем данной команды, то записано число 3, вничью— 2, если\n" +
-"игра закончилась проигрышем — 1). С помощью датчика случайных чисел\n" +
-"заполнить массив целыми значениями, лежащими в диапазоне от 1 до 3\n" +
-"включительно. Определить номера тех команд, которые проиграли.");
-           System.out.println("Результаты игр: ");
+        System.out.println("Результаты игр: ");
         for (int i = 0; i < results.length; i++) {
             System.out.println("Игра " + (i + 1) + ": " + results[i]);
         }
         System.out.println("\nНомера игр, которые закончились проигрышем (результат = 1):");
+        String str = "";
         for (int i = 0; i < results.length; i++) {
             if (results[i] == 1) {
                 System.out.println("Игра " + (i + 1));
+                System.out.print(i + "");
+                str +=i + " ";
+
             }
-        }        // TODO add your handling code here:
+
+        }
+        jTextField5.setText(str);
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-      int[] A = new int[20];
+        int[] A = new int[20];
         Random random = new Random();
 
         for (int i = 0; i < A.length; i++) {
             A[i] = random.nextInt(100) + 1;
         }
-        System.out.println("Задан одномерный массив A[1..20]. Найти максимальный элемент среди\n" +
-"элементов с n-го по k-й и его индекс.");
+        System.out.println("Задан одномерный массив A[1..20]. Найти максимальный элемент среди\n"
+                + "элементов с n-го по k-й и его индекс.");
         System.out.println("Нельзя вводить n > k");
         System.out.println("Элементы массива A:");
         Scanner scanner = new Scanner(System.in);
@@ -566,9 +575,9 @@ int[] results = new int[20];
             System.out.println("Индекс максимального элемента: " + (maxIndex + 1));
         }  // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
- 
+
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-         int rows = 3;
+        int rows = 3;
         int cols = 6;
         int[][] matrix = new int[rows][cols];
         Random random = new Random();
@@ -577,9 +586,9 @@ int[] results = new int[20];
                 matrix[i][j] = random.nextInt(81) + 10;
             }
         }
-        System.out.println("Вывести на экран матрицу 3x6, элементами которой являются целые\n" +
-"случайные числа из интервала [10,90]. Определить номер минимального элемента\n" +
-"в каждой строке.");
+        System.out.println("Вывести на экран матрицу 3x6, элементами которой являются целые\n"
+                + "случайные числа из интервала [10,90]. Определить номер минимального элемента\n"
+                + "в каждой строке.");
         System.out.println("Сгенерированная матрица:");
         for (int i = 0; i < rows; i++) {
             for (int j = 0; j < cols; j++) {
@@ -602,9 +611,9 @@ int[] results = new int[20];
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
-        System.out.println("Следом квадратной матрицы называют число, равное сумме элементов\n" +
-"главной диагонали. Составить программу нахождения следа квадратной матрицы\n" +
-"порядка n.");
+        System.out.println("Следом квадратной матрицы называют число, равное сумме элементов\n"
+                + "главной диагонали. Составить программу нахождения следа квадратной матрицы\n"
+                + "порядка n.");
         System.out.print("Введите порядок квадратной матрицы (n): ");
         int n = scanner.nextInt();
         int[][] matrix = new int[n][n];
