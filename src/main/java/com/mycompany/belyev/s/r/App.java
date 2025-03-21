@@ -5,9 +5,10 @@
  */
 package com.mycompany.belyev.s.r;
 
+import com.sun.org.apache.xml.internal.dtm.DTM;
 import java.util.Random;
 import java.util.Scanner;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -799,7 +800,15 @@ public class App extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
-
+        String input = jTextField10.getText();
+         String[] words = input.split("\\s+");
+         String longestWord = "";
+         for (String w : words){       
+             if (w.length()> longestWord.length()){
+                 longestWord = w;
+             }
+         }
+         jTextField9.setText(longestWord);
     }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
@@ -810,21 +819,11 @@ public class App extends javax.swing.JFrame {
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        java.awt.EventQueue.invokeLater(() -> {
-            new App().setVisible(true);
-        });
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Введите текст");
-        String text = scanner.nextLine();
-        String[] words = text.split("\\s+");
-        String longestWord = "";
-        for (String word : words) {
-            if (word.length() > longestWord.length()) {
-                longestWord = word;
-
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new App().setVisible(true);
             }
-        }
-        System.out.println("Самое длинное слово:"+ longestWord);
+        });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
